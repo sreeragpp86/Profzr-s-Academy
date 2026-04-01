@@ -33,10 +33,9 @@ def material_list(request, category):
         })
 
     context = {
-        'category': category,
-        'display_category': category.replace('-', ' ').upper(),
-        'display_subject': subject_slug.replace('-', ' ').title(),
-        'chapters': clean_chapters,
+        'chapters': subject_chapters,  # This name MUST match the template loop
+        'display_subject': subject.replace('_', ' '),
+        'display_category': category.upper(),
     }
     return render(request, 'material_list.html', context)
 

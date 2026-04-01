@@ -77,19 +77,25 @@
         </div>
     </div>
 
-    <nav class="fixed top-12 left-0 right-0 z-40 px-6 flex justify-center">
-        <div class="glass max-w-5xl w-full h-14 flex items-center justify-between px-6 rounded-2xl">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">P</div>
-                <span class="font-black text-lg tracking-tighter text-primary">Profzrs <span
-                        class="text-secondary">Kerala</span></span>
-            </div>
-            <div class="flex items-center gap-6">
-                <a class="text-sm font-bold text-primary" href="{% url 'index' %}">Home</a>
-
-            </div>
+  <header class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        
+        <div class="flex items-center gap-3"> 
+            <a href="{% url 'index' %}" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="{% static 'images/logo.png' %}" 
+                     alt="Profzr's Academy" 
+                     class="h-14 w-auto object-contain drop-shadow-md">
+                <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">
+                    Profzr's Academy
+                </div>
+            </a>
         </div>
-    </nav>
+
+        <div class="flex items-center gap-6">
+            <a href="{% url 'index' %}" class="text-sm font-bold text-primary">Home</a>
+        </div>
+    </div>
+</header>
 
     <main class="pt-48 pb-20 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-20">

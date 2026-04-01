@@ -80,23 +80,33 @@
         </div>
     </div>
 
-    <header
-        class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-            <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">Study Hub Kerala</div>
-            <div class="flex-1 max-w-xl mx-8 hidden md:block">
-                <div class="relative">
-                    <input id="subject-search"
-                        class="w-full bg-white/50 border border-outline-variant/20 rounded-full px-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
-                        placeholder="Search Plus Two topics..." type="text" />
-                    <span
-                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+    <header class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        
+        <div class="flex items-center gap-3"> 
+            <a href="{% url 'index' %}" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="{% static 'images/logo.png' %}" 
+                     alt="Profzr's Academy" 
+                     class="h-14 w-auto object-contain drop-shadow-md">
+                <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">
+                    Profzr's Academy
                 </div>
-            </div>
-            <div class="flex items-center gap-6"><a href="{% url 'index' %}"
-                    class="text-sm font-bold text-primary">Home</a></div>
+            </a>
         </div>
-    </header>
+
+        <div class="flex-1 max-w-xl mx-8 hidden md:block">
+            <div class="relative">
+                <input class="w-full bg-white/50 border border-outline-variant/20 rounded-full px-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                       placeholder="Search Plus One topics..." type="text" />
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <a href="{% url 'index' %}" class="text-sm font-bold text-primary">Home</a>
+        </div>
+    </div>
+</header>
 
     <aside
         class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-50/50 backdrop-blur-md flex flex-col p-4 pt-32 hidden xl:flex border-r border-black/5">
@@ -161,18 +171,28 @@
             </div>
 
             <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
-                data-category="science">
-                <div class="mb-6 w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-600">
-                    <span class="material-symbols-outlined text-3xl">dna</span>
-                </div>
-                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Biology</h3>
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Genetics & Biotechnology</p>
-                <button onclick="location.href='{% url 'material_list' 'plus-two' %}?subject=biology';"
-                    class="w-full py-3 rounded-xl border-2 border-rose-100 text-rose-600 font-bold hover:bg-rose-600 hover:text-white transition-all">Explore</button>
-            </div>
+            data-category="science">
+    <div class="mb-6 w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center text-green-600">
+        <span class="material-symbols-outlined text-3xl">potted_plant</span>
+    </div>
+    <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Botany</h3>
+    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Plant Science & Physiology</p>
+    <button onclick="location.href='{% url 'material_list' 'plus-two' %}?subject=botany';"
+        class="w-full py-3 rounded-xl border-2 border-green-100 text-green-600 font-bold hover:bg-green-600 hover:text-white transition-all">Explore</button>
+</div>
 
+<div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+data-category="science">
+    <div class="mb-6 w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600">
+        <span class="material-symbols-outlined text-3xl">pets</span>
+    </div>
+    <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Zoology</h3>
+    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Animal Science & Genetics</p>
+    <button onclick="location.href='{% url 'material_list' 'plus-two' %}?subject=zoology';"
+        class="w-full py-3 rounded-xl border-2 border-orange-100 text-orange-600 font-bold hover:bg-orange-600 hover:text-white transition-all">Explore</button>
+</div>
             <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
-                data-category="science commerce">
+                data-category="science">
                 <div class="mb-6 w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600">
                     <span class="material-symbols-outlined text-3xl">functions</span>
                 </div>

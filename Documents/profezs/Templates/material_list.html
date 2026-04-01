@@ -57,44 +57,35 @@
 
     <main class="pt-32 pb-20 px-6 max-w-3xl mx-auto">
 
-        <div class="mb-12">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="material-symbols-outlined text-blue-600">auto_stories</span>
-                <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Digital Resource Vault</span>
-            </div>
-            <h2 class="text-5xl font-black mb-3 tracking-tight">{{ display_category }} {{ display_subject }}</h2>
-            <p class="text-slate-500 text-lg">Download chapter-wise notes, derivation lists, and numerical problem sets.
-            </p>
-        </div>
+        <div class="space-y-4">
+    <h2 class="text-3xl font-black text-indigo-900 mb-6 capitalize">{{ display_subject }} Chapters</h2>
 
-        <div id="physics-list" class="space-y-3">
     {% for chapter in chapters %}
-    <div class="chapter-card bg-white/40 p-5 rounded-2xl flex items-center justify-between group shadow-sm">
-        <div class="flex items-center gap-5">
-            <div class="w-10 h-10 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center font-black text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                {{ forloop.counter|stringformat:"02d" }}
+        <div class="chapter-card bg-white p-5 rounded-2xl flex items-center justify-between shadow-sm border border-black/5 hover:shadow-md transition-all">
+            <div class="flex items-center gap-5">
+                <div class="w-10 h-10 bg-indigo-50 text-indigo-700 rounded-xl flex items-center justify-center font-black text-sm">
+                    {{ forloop.counter|stringformat:"02d" }}
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800">{{ chapter.name }}</h4>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">Standard X Resources</p>
+                </div>
             </div>
-            <div>
-                <a href="{{ chapter.file_url }}" target="_blank"
-                    class="font-bold text-slate-800 group-hover:text-blue-900 transition-colors cursor-pointer">
-                    {{ chapter.name }}
+            
+            <div class="flex items-center gap-3">
+                <a href="{{ chapter.file_url }}" target="_blank" class="p-2 text-slate-400 hover:text-indigo-600 transition-colors">
+                    <span class="material-symbols-outlined">visibility</span>
+                </a>
+                <a href="{{ chapter.file_url }}" download class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 transition-all">
+                    <span class="material-symbols-outlined text-sm">download</span>
+                    Download
                 </a>
             </div>
         </div>
-        <div class="flex items-center">
-            <a href="{{ chapter.file_url }}" 
-                 download 
-                target="_blank" 
-                 class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white rounded-xl text-xs font-bold transition-all">
-                <span class="material-symbols-outlined text-sm">download</span>
-                DOWNLOAD PDF
-            </a>
-        </div>
-    </div>
     {% empty %}
-    <div class="text-center py-20 bg-slate-100 rounded-3xl border-2 border-dashed border-slate-200">
-        <p class="text-slate-400 font-medium">Resources for this subject are being uploaded soon!</p>
-    </div>
+        <div class="text-center py-20 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
+            <p class="text-slate-400 font-medium italic">No resources found for {{ display_subject }} yet.</p>
+        </div>
     {% endfor %}
 </div>
 

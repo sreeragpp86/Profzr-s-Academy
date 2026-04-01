@@ -65,7 +65,10 @@ DATABASES = {
 
 # 5. Static & Media (No more NameError!)
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Add this if it's not there to help Django find your folders
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),]
 
 
 # Ensure BASE_DIR is defined at the top of your settings.py

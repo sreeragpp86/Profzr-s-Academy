@@ -75,25 +75,33 @@
         </div>
     </div>
 
-    <header
-        class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-            <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">Study Hub Kerala</div>
-            <div class="flex-1 max-w-xl mx-8 hidden md:block">
-                <div class="relative">
-                    <input id="subject-search"
-                        class="w-full bg-white/50 border border-outline-variant/20 rounded-full px-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
-                        placeholder="Quick find SSLC subjects..." type="text" />
-                    <span
-                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+     <header class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        
+        <div class="flex items-center gap-3"> 
+            <a href="{% url 'index' %}" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="{% static 'images/logo.png' %}" 
+                     alt="Profzr's Academy" 
+                     class="h-14 w-auto object-contain drop-shadow-md">
+                <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">
+                    Profzr's Academy
                 </div>
-            </div>
-            <div class="flex items-center gap-6">
-                <a href="{% url 'index' %}" class="text-sm font-bold text-primary">Home</a>
+            </a>
+        </div>
+
+        <div class="flex-1 max-w-xl mx-8 hidden md:block">
+            <div class="relative">
+                <input class="w-full bg-white/50 border border-outline-variant/20 rounded-full px-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                       placeholder="Search Plus One topics..." type="text" />
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
             </div>
         </div>
-    </header>
 
+        <div class="flex items-center gap-6">
+            <a href="{% url 'index' %}" class="text-sm font-bold text-primary">Home</a>
+        </div>
+    </div>
+</header>
     <aside
         class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-50/50 backdrop-blur-md flex flex-col p-4 pt-32 hidden xl:flex border-r border-black/5">
         <div class="px-4 mb-8">
@@ -165,18 +173,25 @@
                     class="w-full py-3 rounded-xl border-2 border-indigo-100 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-all">Explore</button>
             </div>
 
-            <div
-                class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl">
-                <div class="mb-6 w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600">
-                    <span class="material-symbols-outlined text-3xl">public</span>
-                </div>
-                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Social Science</h3>
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">History, Geography & Civics
-                </p>
-                <button onclick="location.href='{% url 'material_list' 'sslc' %}?subject=social-science';"
-                    class="w-full py-3 rounded-xl border-2 border-orange-100 text-orange-600 font-bold hover:bg-orange-600 hover:text-white transition-all">Explore</button>
-            </div>
+          <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl">
+    <div class="mb-6 w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600">
+        <span class="material-symbols-outlined text-3xl">history_edu</span>
+    </div>
+    <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">History</h3>
+    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Civics & Sociology</p>
+    <button onclick="location.href='{% url 'material_list' 'sslc' %}?subject=history';"
+        class="w-full py-3 roundsed-xl border-2 border-amber-100 text-amber-600 font-bold hover:bg-amber-600 hover:text-white transition-all">Explore</button>
+</div>
 
+<div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl">
+    <div class="mb-6 w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center text-green-600">
+        <span class="material-symbols-outlined text-3xl">public</span>
+    </div>
+    <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Geography</h3>
+    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Economics & Resources</p>
+    <button onclick="location.href='{% url 'material_list' 'sslc' %}?subject=geography';"
+        class="w-full py-3 rounded-xl border-2 border-green-100 text-green-600 font-bold hover:bg-green-600 hover:text-white transition-all">Explore</button>
+</div>  
             <div
                 class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl">
                 <div class="mb-6 w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600">
