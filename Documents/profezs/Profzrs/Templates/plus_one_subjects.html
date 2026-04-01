@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Plus One Resources | Study Hub Kerala</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#30008c",
+                        "primary-container": "#470ac2",
+                        "on-primary": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "outline-variant": "#cac3d7",
+                    },
+                    fontFamily: { "headline": ["Inter"], "body": ["Inter"] }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(at 0% 0%, rgba(48, 0, 140, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 106, 106, 0.05) 0px, transparent 50%);
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .subject-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+
+<body class="font-body text-on-surface antialiased">
+
+    <div
+        class="fixed top-0 w-full z-[60] bg-gradient-to-r from-primary to-primary-container py-2 overflow-hidden shadow-lg">
+        <div class="animate-marquee inline-flex gap-x-12 px-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-on-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm"
+                    style="font-variation-settings: 'FILL' 1;">campaign</span>
+                Plus One: Improvement Exam Registration Starts Soon
+            </span>
+            <span class="text-xs font-bold uppercase tracking-widest text-on-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">update</span>
+                New Class XI Chapter-wise Revision Notes are Live
+            </span>
+        </div>
+    </div>
+
+    <header
+        class="fixed top-8 w-full z-50 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <div class="text-2xl font-black tracking-tighter text-indigo-900 font-headline">Study Hub Kerala</div>
+            <div class="flex-1 max-w-xl mx-8 hidden md:block">
+                <div class="relative">
+                    <input
+                        class="w-full bg-white/50 border border-outline-variant/20 rounded-full px-12 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                        placeholder="Search Plus One topics..." type="text" />
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-6"><a href="{% url 'index' %}"
+                    class="text-sm font-bold text-primary">Home</a></div>
+        </div>
+    </header>
+
+    <aside
+        class="fixed left-0 top-0 h-full w-64 z-40 bg-slate-50/50 backdrop-blur-md flex flex-col p-4 pt-32 hidden xl:flex border-r border-black/5">
+        <div class="px-4 mb-8">
+            <h2 class="font-headline font-extrabold text-xl text-primary leading-tight">Plus One XI</h2>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Session 2024-25</p>
+        </div>
+        <nav class="flex flex-col gap-y-2">
+            <a class="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-700 rounded-lg" href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+                <span class="text-xs font-bold uppercase tracking-widest">XI Notes</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="xl:ml-64 pt-40 px-6 pb-20 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-4 font-headline">Plus One
+                Resources</h1>
+            <p class="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed">Complete study materials for Kerala State
+                Syllabus Class XI.</p>
+        </div>
+
+        <div class="flex justify-center mb-16">
+            <div class="bg-slate-200/50 p-1.5 rounded-2xl flex gap-1 items-center">
+                <button data-stream-btn data-target="science"
+                    class="px-8 py-3 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/30 transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">science</span> Science
+                </button>
+                <button data-stream-btn data-target="commerce"
+                    class="px-8 py-3 rounded-xl glass-card text-slate-600 font-bold hover:bg-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">payments</span> Commerce
+                </button>
+            </div>
+        </div>
+
+        <div id="subject-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Physics</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Theory & Numerical Lab</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=physics';"
+                    class="w-full py-3 rounded-xl border-2 border-blue-100 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science">
+                <div
+                    class="mb-6 w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <span class="material-symbols-outlined text-3xl">biotech</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Chemistry</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Organic & Inorganic</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=chemistry';"
+                    class="w-full py-3 rounded-xl border-2 border-emerald-100 text-emerald-600 font-bold hover:bg-emerald-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-600">
+                    <span class="material-symbols-outlined text-3xl">microbiology</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Biology</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Botany & Zoology</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=biology';"
+                    class="w-full py-3 rounded-xl border-2 border-rose-100 text-rose-600 font-bold hover:bg-rose-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600">
+                    <span class="material-symbols-outlined text-3xl">functions</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Mathematics</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Calculus & Algebra</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=mathematics';"
+                    class="w-full py-3 rounded-xl border-2 border-indigo-100 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600">
+                    <span class="material-symbols-outlined text-3xl">terminal</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Computer Science</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">C++ & Python Logic</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=computer-science';"
+                    class="w-full py-3 rounded-xl border-2 border-slate-100 text-slate-600 font-bold hover:bg-slate-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl hidden"
+                data-category="commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600">
+                    <span class="material-symbols-outlined text-3xl">calculate</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Accountancy</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Financial Reporting</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=accountancy';"
+                    class="w-full py-3 rounded-xl border-2 border-amber-100 text-amber-600 font-bold hover:bg-amber-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl hidden"
+                data-category="commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600">
+                    <span class="material-symbols-outlined text-3xl">corporate_fare</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Business Studies</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Management & Ethics</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=business-studies';"
+                    class="w-full py-3 rounded-xl border-2 border-orange-100 text-orange-600 font-bold hover:bg-orange-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl hidden"
+                data-category="commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600">
+                    <span class="material-symbols-outlined text-3xl">monitoring</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Economics</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Statistics & Indian Economy
+                </p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=economics';"
+                    class="w-full py-3 rounded-xl border-2 border-cyan-100 text-cyan-600 font-bold hover:bg-cyan-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600">
+                    <span class="material-symbols-outlined text-3xl">translate</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">English</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Literature & Grammar</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=english';"
+                    class="w-full py-3 rounded-xl border-2 border-purple-100 text-purple-600 font-bold hover:bg-purple-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+            <div class="subject-card group bg-white rounded-[2rem] p-8 border border-black/5 transition-all hover:shadow-2xl"
+                data-category="science commerce">
+                <div class="mb-6 w-14 h-14 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-600">
+                    <span class="material-symbols-outlined text-3xl">menu_book</span>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900 mb-4 font-headline">Malayalam / Hindi</h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Language & Poetry</p>
+                <button onclick="location.href='{% url 'material_list' 'plus-one' %}?subject=second-language';"
+                    class="w-full py-3 rounded-xl border-2 border-teal-100 text-teal-600 font-bold hover:bg-teal-600 hover:text-white transition-all">Explore</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('[data-stream-btn]');
+        const cards = document.querySelectorAll('.subject-card');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+
+                buttons.forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+                    btn.classList.add('glass-card', 'text-slate-600');
+                });
+                button.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
+                button.classList.remove('glass-card', 'text-slate-600');
+
+                cards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    if (categories.includes(target)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

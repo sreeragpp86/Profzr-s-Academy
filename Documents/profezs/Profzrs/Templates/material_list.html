@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ display_subject }} | Study Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body class="bg-slate-50 font-sans text-slate-900">
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <div class="mb-12">
+            <a href="javascript:history.back()" class="text-indigo-600 font-bold flex items-center gap-2 mb-4">
+                <span class="material-symbols-outlined">arrow_back</span> Back to Subjects
+            </a>
+            <h1 class="text-4xl font-black tracking-tight">{{ display_subject }}</h1>
+            <p class="text-slate-500 uppercase tracking-widest text-xs font-bold mt-2">{{ display_category }} RESOURCES
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            {% for chapter in chapters %}
+            <div
+                class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center font-bold">
+                        {{ forloop.counter }}
+                    </div>
+                    <h3 class="font-bold text-lg">{{ chapter.name }}</h3>
+                </div>
+                <a href="{{ chapter.file_url }}" target="_blank"
+                    class="bg-indigo-600 text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-indigo-700 transition-colors">
+                    <span class="material-symbols-outlined text-sm">download</span> PDF
+                </a>
+            </div>
+            {% empty %}
+            <div class="text-center py-20 bg-slate-100 rounded-3xl border-2 border-dashed border-slate-300">
+                <span class="material-symbols-outlined text-5xl text-slate-300 mb-4">folder_off</span>
+                <p class="text-slate-500 font-medium">No chapters uploaded yet for this subject.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
