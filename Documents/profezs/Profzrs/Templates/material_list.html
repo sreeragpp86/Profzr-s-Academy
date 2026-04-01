@@ -1,51 +1,104 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>{{ display_subject }} | Study Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
+        }
+
+        .chapter-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            background-color: white;
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.1);
+            border-color: #2563eb;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="font-['Inter'] text-slate-900">
 
-    <div class="max-w-4xl mx-auto px-6 py-12">
+    <nav class="glass-nav fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <a href="/{{ category }}/"
+                    class="group flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-50 transition-all">
+                    <span class="material-symbols-outlined text-blue-900">arrow_back</span>
+                </a>
+                <h1 class="text-xl font-black tracking-tighter text-blue-900 uppercase italic">{{ display_subject }}
+                    Section</h1>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest bg-blue-600 text-white px-3 py-1.5 rounded-lg">
+                {{ display_category }} / 2024-25
+            </span>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-3xl mx-auto">
+
         <div class="mb-12">
-            <a href="javascript:history.back()" class="text-indigo-600 font-bold flex items-center gap-2 mb-4">
-                <span class="material-symbols-outlined">arrow_back</span> Back to Subjects
-            </a>
-            <h1 class="text-4xl font-black tracking-tight">{{ display_subject }}</h1>
-            <p class="text-slate-500 uppercase tracking-widest text-xs font-bold mt-2">{{ display_category }} RESOURCES
+            <div class="flex items-center gap-3 mb-2">
+                <span class="material-symbols-outlined text-blue-600">auto_stories</span>
+                <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Digital Resource Vault</span>
+            </div>
+            <h2 class="text-5xl font-black mb-3 tracking-tight">{{ display_category }} {{ display_subject }}</h2>
+            <p class="text-slate-500 text-lg">Download chapter-wise notes, derivation lists, and numerical problem sets.
             </p>
         </div>
 
-        <div class="space-y-4">
+        <div id="physics-list" class="space-y-3">
             {% for chapter in chapters %}
-            <div
-                class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between hover:shadow-md transition-shadow">
-                <div class="flex items-center gap-4">
+            <div class="chapter-card bg-white/40 p-5 rounded-2xl flex items-center justify-between group shadow-sm">
+                <div class="flex items-center gap-5">
                     <div
-                        class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center font-bold">
-                        {{ forloop.counter }}
+                        class="w-10 h-10 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center font-black text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        {{ forloop.counter|stringformat:"02d" }}
                     </div>
-                    <h3 class="font-bold text-lg">{{ chapter.name }}</h3>
+                    <div>
+                        <a href="/{{ chapter.file_url }}" target="_blank"
+                            class="font-bold text-slate-800 group-hover:text-blue-900 transition-colors cursor-pointer">
+                            {{ chapter.name }}
+                        </a>
+                    </div>
                 </div>
-                <a href="{{ chapter.file_url }}" target="_blank"
-                    class="bg-indigo-600 text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-indigo-700 transition-colors">
-                    <span class="material-symbols-outlined text-sm">download</span> PDF
-                </a>
+                <div class="flex items-center">
+                    <a href="{{ chapter.file_url }}" download
+                        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white rounded-xl text-xs font-bold transition-all"
+                        title="Download PDF">
+                        <span class="material-symbols-outlined text-sm">download</span>
+                        DOWNLOAD
+                    </a>
+                </div>
             </div>
             {% empty %}
-            <div class="text-center py-20 bg-slate-100 rounded-3xl border-2 border-dashed border-slate-300">
-                <span class="material-symbols-outlined text-5xl text-slate-300 mb-4">folder_off</span>
-                <p class="text-slate-500 font-medium">No chapters uploaded yet for this subject.</p>
+            <div class="text-center py-20 bg-slate-100 rounded-3xl border-2 border-dashed border-slate-200">
+                <p class="text-slate-400 font-medium">Resources for this subject are being uploaded soon!</p>
             </div>
             {% endfor %}
         </div>
-    </div>
+
+    </main>
 
 </body>
 
