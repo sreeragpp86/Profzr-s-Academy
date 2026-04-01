@@ -4,7 +4,7 @@ SYLLABUS = {
     'sslc': {
         'physics': [
             {'id': 1, 'name': 'Effects of Electric Current',
-                'file_url': '/media/sslc/phy/ch1.pdf'},
+                'file_url': 'Profzrs/media/sslc/phy/ch1.pdf'},
             {'id': 2, 'name': 'Magnetic Effects of Electric Current',
                 'file_url': '/media/sslc/phy/ch2.pdf'},
             {'id': 3, 'name': 'Electromagnetic Induction',
