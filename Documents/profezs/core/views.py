@@ -5,17 +5,38 @@ from .chapters_data import SYLLABUS  # Import the data we just made
 
 def material_list(request, category):
     subject_slug = request.GET.get('subject', 'all')
+    raw_chapters = SYLLABUS.get(category, {}).get(subject_slug, [])
 
-    # Fetch the chapters for the specific class and subject
-    # .get() prevents the app from crashing if a subject isn't found
-    chapters = SYLLABUS.get(category, {}).get(subject_slug, [])
+    clean_chapters = []
+    for ch in raw_chapters:
+        # This forces the URL to be /media/... and ensures it ends in .pdf
+        # It also removes any accidental project names like 'Profzrs' from the path
+        url = ch['file_url']
+        
+        # Ensure it starts with /media/
+        if not url.startswith('/media/'):
+            # If it starts with media/ (no slash), add the slash
+            if url.startswith('media/'):
+                url = '/' + url
+            # If it doesn't have media at all, add it
+            else:
+                url = '/media/' + url.lstrip('/')
+
+        # Fix the .htm vs .pdf issue automatically
+        if url.endswith('.htm'):
+            url = url.replace('.htm', '.pdf')
+
+        clean_chapters.append({
+            'id': ch['id'],
+            'name': ch['name'],
+            'file_url': url
+        })
 
     context = {
         'category': category,
-        'subject': subject_slug,
         'display_category': category.replace('-', ' ').upper(),
         'display_subject': subject_slug.replace('-', ' ').title(),
-        'chapters': chapters,
+        'chapters': clean_chapters,
     }
     return render(request, 'material_list.html', context)
 

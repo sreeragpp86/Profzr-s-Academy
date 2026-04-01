@@ -1,8 +1,12 @@
-from pathlib import Path
 import os
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# BASE_DIR is usually defined at the top of settings.py
 
+# This ensures we go up to the main 'profezs' folder
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # 1. This MUST be first
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 2. Security
 SECRET_KEY = 'django-insecure-your-secret-key-here'
@@ -31,13 +35,12 @@ MIDDLEWARE = [
 ]
 
 # This matches the folder name in your manage.py
-ROOT_URLCONF = 'Profzrs.urls'
+ROOT_URLCONF = 'core.Profzrs.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Updated to point exactly to your folder structure
-        'DIRS': [BASE_DIR / 'Profzrs' / 'Templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # Add this line
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -50,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Profzrs.wsgi.application'
+WSGI_APPLICATION = 'core.Profzrs.wsgi.application'
 
 # 4. Database
 DATABASES = {
